@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const NavBar = () => {
+    const [searchVisible, setSearchVisible] = useState(false);
+    const [searchInput, setSearchInput] = useState('');
+    const [filteredItems, setFilteredItems] = useState([]);
+
+    const items = [
+        { name: "Women's Sweaters", img: 'imgs/womenSweater.svg' },
+        { name: "Women's Bottoms", img: 'imgs/womenBottom.svg' },
+        { name: "Women's Boots", img: 'imgs/womenBoot.svg' },
+        { name: "Men's Best Sellers", img: 'imgs/menBestSeller.svg' },
+
+    ];
+
+    const toggleSearch = () => {
+        setSearchVisible(!searchVisible);
+        if (!searchVisible) {
+
+            setSearchInput('');
+            setFilteredItems([]);
+        }
+    };
+
+    const handleSearchChange = (e) => {
+        const query = e.target.value;
+        setSearchInput(query);
+
+        if (query.length > 0) {
+            const filtered = items.filter(item => {
+
+                return item.name.toLowerCase().split(' ').some(word =>
+                    word.startsWith(query.toLowerCase())
+                );
+            });
+            setFilteredItems(filtered);
+        } else {
+            setFilteredItems([]);
+        }
+    };
+
+    const handleCancel = () => {
+        setSearchInput('');
+        setFilteredItems([]);
+        setSearchVisible(false);
+    };
+
     return (
         <div className='navBar'>
-            <div className='nav-warapper'>
+            <div className='nav-wrapper'>
                 <nav className='nav container'>
                     <ul className='nav__categories'>
                         <li><a href='#!'>Women</a></li>
@@ -11,17 +55,17 @@ const NavBar = () => {
                         <li><a href='/about'>About</a></li>
                         <li><a href='/stories'>Everworld Stories</a></li>
                     </ul>
-                    <a href='#!' className='logo'><img src='logo.svg' alt="This is logo" /></a>
+                    <a href='#!' className='logo'><img src='logo.svg' alt="Logo" /></a>
                     <ul className='nav__buttons'>
-                        <li><button><i class="fa fa-search" aria-hidden="true"></i></button></li>
-                        <li><button><i class="fa-solid fa-user"></i></button></li>
-                        <li><button><i class="fa-solid fa-cart-shopping"></i></button></li>
+                        <li><button onClick={toggleSearch}><i className="fa fa-search" aria-hidden="true"></i></button></li>
+                        <li><button><i className="fa-solid fa-user"></i></button></li>
+                        <li><button><i className="fa-solid fa-cart-shopping"></i></button></li>
                     </ul>
                 </nav>
             </div>
             <ul className='nav__options-menu'>
                 <li><a href='#!'>Holiday Gifting</a></li>
-                <li><a href='#!'>New Arivals</a></li>
+                <li><a href='#!'>New Arrivals</a></li>
                 <li><a href='#!'>Best-seller</a></li>
                 <li><a href='#!'>Clothing</a></li>
                 <li><a href='#!'>Tops & Sweater</a></li>
@@ -30,14 +74,41 @@ const NavBar = () => {
                 <li><a href='#!'>Shoes & Bags</a></li>
                 <li><a href='#!'>Sales</a></li>
             </ul>
-            <div className='navBar__searchField'>
-                <form >
-                    <input className='navBar__searchField-input' placeholder='Search'/>
-                    <button type='reset'>Cancel</button>
-                </form>
-            </div>
-        </div>
-    )
-}
 
-export default NavBar
+            { }
+            {searchVisible && <div className='overlay' onClick={handleCancel}></div>}
+
+            {searchVisible && (
+                <div className='navBar__searchField'>
+                    <form onSubmit={(e) => e.preventDefault()}>
+                        <input
+                            type='text'
+                            value={searchInput}
+                            onChange={handleSearchChange}
+                            className='navBar__searchField-input'
+                            placeholder='Search'
+                            autoFocus='True'
+                        />
+                        <button type='button' onClick={handleCancel}>Cancel</button>
+                    </form>
+                    { }
+                    {searchInput && filteredItems.length > 0 && (
+                        <div className='searchResults container'>
+                            <h3>Search Results</h3>
+                            <div className='searchResults__grid'>
+                                {filteredItems.map((item, index) => (
+                                    <div key={index} className='searchResults__grid-item'>
+                                        <img src={item.img} alt={item.name} />
+                                        <span className='imgCaption'>{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default NavBar;
