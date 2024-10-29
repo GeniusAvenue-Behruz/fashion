@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NavBar = () => {
     const [searchVisible, setSearchVisible] = useState(false);
@@ -9,30 +9,32 @@ const NavBar = () => {
         { name: "Women's Sweaters", img: 'imgs/womenSweater.svg' },
         { name: "Women's Bottoms", img: 'imgs/womenBottom.svg' },
         { name: "Women's Boots", img: 'imgs/womenBoot.svg' },
-        { name: "Men's Best Sellers", img: 'imgs/menBestSeller.svg' },
-
+        { name: "The Waffle Long-Sleeve Crew", img: 'imgs/waffle.svg' },
+        { name: "The Bomber jacket | Uniform | Men's", img: 'imgs/jacket.svg' },
+        { name: "The Essential Original Crew", img: 'imgs/essential.svg' },
+        { name: "The Heavy Weight | Men's Bottoms", img: 'imgs/menBestSeller.svg' },
     ];
 
     const toggleSearch = () => {
         setSearchVisible(!searchVisible);
         if (!searchVisible) {
-
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
             setSearchInput('');
             setFilteredItems([]);
         }
     };
 
     const handleSearchChange = (e) => {
-        const query = e.target.value;
+        const query = e.target.value.toLowerCase();
         setSearchInput(query);
 
         if (query.length > 0) {
-            const filtered = items.filter(item => {
-
-                return item.name.toLowerCase().split(' ').some(word =>
-                    word.startsWith(query.toLowerCase())
-                );
-            });
+            const queryParts = query.split(' ');
+            const filtered = items.filter(item =>
+                queryParts.some(part => item.name.toLowerCase().includes(part))
+            );
             setFilteredItems(filtered);
         } else {
             setFilteredItems([]);
@@ -43,7 +45,27 @@ const NavBar = () => {
         setSearchInput('');
         setFilteredItems([]);
         setSearchVisible(false);
+        document.body.style.overflow = 'auto';
     };
+
+    // Close modal on Esc key press
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape' && searchVisible) {
+                handleCancel();
+            }
+        };
+
+        if (searchVisible) {
+            window.addEventListener('keydown', handleKeyDown);
+        } else {
+            window.removeEventListener('keydown', handleKeyDown);
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [searchVisible]);
 
     return (
         <div className='navBar'>
@@ -75,7 +97,6 @@ const NavBar = () => {
                 <li><a href='#!'>Sales</a></li>
             </ul>
 
-            { }
             {searchVisible && <div className='overlay' onClick={handleCancel}></div>}
 
             {searchVisible && (
@@ -87,16 +108,15 @@ const NavBar = () => {
                             onChange={handleSearchChange}
                             className='navBar__searchField-input'
                             placeholder='Search'
-                            autoFocus='True'
+                            autoFocus
                         />
                         <button type='button' onClick={handleCancel}>Cancel</button>
                     </form>
-                    { }
                     {searchInput && filteredItems.length > 0 && (
                         <div className='searchResults container'>
                             <h3>Search Results</h3>
                             <div className='searchResults__grid'>
-                                {filteredItems.map((item, index) => (
+                                {filteredItems.slice(0, 4).map((item, index) => (
                                     <div key={index} className='searchResults__grid-item'>
                                         <img src={item.img} alt={item.name} />
                                         <span className='imgCaption'>{item.name}</span>
