@@ -258,7 +258,7 @@ button {
   h1 {
     font-size: 46px;
     letter-spacing: 0.92px;
-    /* line-height: 55.2; */
+
     font-weight: normal;
     margin-bottom: 15px;
   }
@@ -267,7 +267,7 @@ button {
     display: inline-block;
     font-size: 24px;
     width: 250px;
-    /* line-height: 33.2; */
+
     letter-spacing: 0px;
     margin-bottom: 30px;
   }
@@ -303,13 +303,15 @@ button {
     overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
       display: none;
     }
+
     display: grid;
     gap: 8px;
     grid-template-columns: repeat(6, 1fr);
-    
+
     .shopByCategory__grid-item {
       width: auto;
       display: flex;
@@ -353,6 +355,10 @@ button {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+.slick-arrow:focus {
+  background-color: rgba(0, 0, 0, 1);
+}
+
 .slick-prev {
   left: 5px;
 }
@@ -387,11 +393,11 @@ button {
 
   div {
     position: relative;
-    /* Allows absolute positioning for img */
+
     height: auto;
     min-height: 500px;
     overflow: hidden;
-    /* Ensures img does not overflow */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -405,28 +411,28 @@ button {
 
     img {
       position: absolute;
-      /* Positioning the img */
+
       top: 0;
       left: 0;
       width: 100%;
-      /* Makes img cover full width */
+
       height: 100%;
-      /* Makes img cover full height */
+
       object-fit: cover;
-      /* Ensures img covers the div while maintaining aspect ratio */
+
       z-index: 0;
-      /* Places img behind text */
+
     }
 
     h1 {
       position: relative;
-      /* Ensures h1 is above the img */
+
       font-size: 40px;
       font-weight: normal;
       letter-spacing: 0.2px;
       color: white;
       z-index: 1;
-      /* Places h1 above the img */
+
     }
 
     button {
@@ -439,7 +445,7 @@ button {
       cursor: pointer;
       transition: all 0.3s ease;
       z-index: 1;
-      /* Places button above the img */
+
 
       &:hover {
         background-color: white;
@@ -450,6 +456,7 @@ button {
     }
   }
 }
+
 .main__mission {
   margin: 90px auto;
   background-image: url('mission.svg');
@@ -497,8 +504,9 @@ button {
   width: fit-content;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+
   flex-direction: column;
+
   h1 {
     text-align: center;
     font-size: 24px;
@@ -507,7 +515,7 @@ button {
     margin-top: 6px;
   }
 
-  & > span {
+  &>span {
     display: block;
     text-align: center;
     font-size: 16px;
@@ -517,9 +525,9 @@ button {
 
   .favorites__slider {
     display: flex;
-      justify-content: space-between;
-      align-items: center;
-    /* gap: 15px;  */
+    justify-content: space-between;
+    align-items: center;
+
 
     .favorites__grid-item {
       width: auto;
@@ -527,10 +535,12 @@ button {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* align-items: center; */
+
+
       img {
-        /* min-width: 200px; */
+
         min-height: 420px;
+        margin-bottom: 5px;
       }
 
       h3 {
@@ -546,6 +556,15 @@ button {
         letter-spacing: 0.2px;
       }
     }
+  }
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

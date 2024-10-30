@@ -2,31 +2,57 @@ import React from 'react';
 import Slider from 'react-slick';
 
 const Main = () => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    dots: true,
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            centerMode: true,
+            centerPadding: '20px', 
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        dots: true,
+                    },
                 },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: true,
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        dots: true,
+                    },
                 },
-            },
-        ],
-    };
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 320,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                    },
+                },
+            ],
+        };
 
     const categories = [
         { img: 'imgs/categories/shirts.svg', label: 'shirts' },
@@ -87,7 +113,7 @@ const Main = () => {
             <div className='main__favorites container'>
                 <h1>Everlane Favorites</h1>
                 <span>Beautifully Functional. Purposefully Designed. Consciously Crafted.</span>
-                <Slider {...settings} className='favorites__slider'>
+                <Slider {...settings} className='favorites__slider container'>
                     {favorites.map((favorite, index) => (
                         <div className='favorites__grid-item' key={index}>
                             <img src={favorite.img} alt={favorite.name} />
