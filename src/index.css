@@ -240,7 +240,7 @@ button {
   width: 100%;
   height: auto;
   min-height: calc(90vh - 150px);
-  background-image: url('../../fashion/public/imgs/hero.svg');
+  background-image: url('hero.svg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -452,7 +452,7 @@ button {
 }
 .main__mission {
   margin: 90px auto;
-  background-image: url('../../fashion/public//imgs/mission.svg');
+  background-image: url('mission.svg');
   height: 280px;
   display: flex;
   justify-content: center;
@@ -522,7 +522,6 @@ button {
     /* gap: 15px;  */
 
     .favorites__grid-item {
-      padding: 0 5px;
       width: auto;
       overflow: hidden;
       display: flex;
