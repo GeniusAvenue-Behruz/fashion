@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+    const navigate = useNavigate();
+
+    const handleClick = (item) => {
+        navigate(`/listing`, { state: { name: item.name, picture: item.img } });
+    };
+
     const [searchVisible, setSearchVisible] = useState(false);
     const [searchInput, setSearchInput] = useState('');
     const [filteredItems, setFilteredItems] = useState([]);
@@ -117,7 +124,7 @@ const NavBar = () => {
                             <h3>Search Results</h3>
                             <div className='searchResults__grid'>
                                 {filteredItems.slice(0, 4).map((item, index) => (
-                                    <div key={index} className='searchResults__grid-item'>
+                                    <div key={index} className='searchResults__grid-item' onClick={() => handleClick(item)}>
                                         <img src={item.img} alt={item.name} />
                                         <span className='imgCaption'>{item.name}</span>
                                     </div>
