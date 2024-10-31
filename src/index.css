@@ -567,5 +567,15 @@ body {
     display: none;
   }
 }
+.listing__grid{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
 
+  .listing__grid-img{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @import url('./media.css');
