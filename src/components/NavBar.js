@@ -5,7 +5,7 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const handleClick = (item) => {
-        navigate(`/listing`, { state: { name: item.name, picture: item.img } });
+        navigate(`/listing`, { state: { name: item.name, picture: item.img, id: item.id } });
     };
 
     const [searchVisible, setSearchVisible] = useState(false);
@@ -13,13 +13,14 @@ const NavBar = () => {
     const [filteredItems, setFilteredItems] = useState([]);
 
     const items = [
-        { name: "Women's Sweaters", img: 'imgs/womenSweater.svg' },
-        { name: "Women's Bottoms", img: 'imgs/womenBottom.svg' },
-        { name: "Women's Boots", img: 'imgs/womenBoot.svg' },
-        { name: "The Waffle Long-Sleeve Crew", img: 'imgs/waffle.svg' },
-        { name: "The Bomber jacket | Uniform | Men's", img: 'imgs/jacket.svg' },
-        { name: "The Essential Original Crew", img: 'imgs/essential.svg' },
-        { name: "The Heavy Weight | Men's Bottoms", img: 'imgs/menBestSeller.svg' },
+        { id: "011", name: "ReWool Oversized Shirt Jacket", img: '../imgs/oversizedShirtJacket.png' },
+        { id: "010", name: "Women's Sweaters", img: '../imgs/womenSweater.svg' },
+        { id: "012", name: "Women's Bottoms", img: '../imgs/womenBottom.svg' },
+        { id: "013", name: "Women's Boots", img: '../imgs/womenBoot.svg' },
+        { id: "014", name: "The Waffle Long-Sleeve Crew", img: '../imgs/waffle.svg' },
+        { id: "015", name: "The Bomber jacket | Uniform | Men's", img: '../imgs/jacket.svg' },
+        { id: "016", name: "The Essential Original Crew", img: '../imgs/essential.svg' },
+        { id: "017", name: "The Heavy Weight | Men's Bottoms", img: '../imgs/menBestSeller.svg' },
     ];
 
     const toggleSearch = () => {
@@ -55,7 +56,6 @@ const NavBar = () => {
         document.body.style.overflow = 'auto';
     };
 
-    // Close modal on Esc key press
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape' && searchVisible) {
