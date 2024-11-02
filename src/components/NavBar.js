@@ -5,6 +5,7 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const handleClick = (item) => {
+        document.body.style.overflow = 'auto';
         navigate(`/listing`, { state: { name: item.name, picture: item.img, id: item.id } });
     };
 
@@ -13,8 +14,8 @@ const NavBar = () => {
     const [filteredItems, setFilteredItems] = useState([]);
 
     const items = [
-        { id: "011", name: "ReWool Oversized Shirt Jacket", img: '../imgs/oversizedShirtJacket.png' },
         { id: "010", name: "Women's Sweaters", img: '../imgs/womenSweater.svg' },
+        { id: "011", name: "ReWool Oversized Shirt Jacket", img: '../imgs/oversizedShirtJacket.svg' },
         { id: "012", name: "Women's Bottoms", img: '../imgs/womenBottom.svg' },
         { id: "013", name: "Women's Boots", img: '../imgs/womenBoot.svg' },
         { id: "014", name: "The Waffle Long-Sleeve Crew", img: '../imgs/waffle.svg' },
@@ -84,7 +85,7 @@ const NavBar = () => {
                         <li><a href='/about'>About</a></li>
                         <li><a href='/stories'>Everworld Stories</a></li>
                     </ul>
-                    <a href='#!' className='logo'><img src='logo.svg' alt="Logo" /></a>
+                    <a href='home' className='logo'><img src='logo.svg' alt="Logo" /></a>
                     <ul className='nav__buttons'>
                         <li><button onClick={toggleSearch}><i className="fa fa-search" aria-hidden="true"></i></button></li>
                         <li><button><i className="fa-solid fa-user"></i></button></li>

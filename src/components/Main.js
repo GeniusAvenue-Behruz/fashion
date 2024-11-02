@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-
+import Rating from '../components/Rating.js'
 const Main = () => {
         const settings = {
             dots: false,
@@ -122,6 +122,35 @@ const Main = () => {
                         </div>
                     ))}
                 </Slider>
+            </div>
+            <div className='main__comments'>
+                <div className='container'>
+                    <div className='main__comments-text'>
+                        <h3>People are talking</h3>
+                        <Rating rating={5} />
+                        <p>“Love this shirt! Fits perfectly and the fabric is thick without being stiff.”</p>
+                        <span>-- JonSnSF, The Heavyweight Overshirt</span>
+                    </div>
+                    <div className='main__comments-img'>
+                        <img src='imgs/comment.png' alt='Comment IMG' />
+                    </div>
+                </div>
+            </div>
+            <div className="main__pick">
+                <div className="main-container">
+                    <div className="card">
+                            <h3>Our Holiday Gift Picks</h3>
+                        <img src="imgs/holidayPick.png" alt="Stack of folded clothes"/>
+                            <p>The best presents for everyone on your list.</p>
+                            <a href="#!">Read More</a>
+                    </div>
+                    <div className="card">
+                            <h3>Cleaner Fashion</h3>
+                        <img src="imgs/cleanerPick.png" alt="Cotton field"/>
+                            <p>See the sustainability efforts behind each of our products.</p>
+                            <a href="#!">Learn More</a>
+                    </div>
+                </div>
             </div>
         </main>
     );
