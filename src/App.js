@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.js'
 import Listing from './pages/Listing.js'
 import NoPage from './pages/NoPage.js'
+import Blog from './pages/Blog.js'
+import About from './pages/About.js'
+
 const App = () => {
   return (
     <div>
@@ -11,6 +14,8 @@ const App = () => {
         <Route index element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/listing' element={<Listing/>}/>
+        <Route path='/stories' element={<Blog/>}/>
+          <Route path='/about' element={<About />}/>
         <Route path='*' element={<NoPage/>}/>
       </Routes>
     </BrowserRouter>

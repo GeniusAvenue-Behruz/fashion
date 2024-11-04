@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="footer__section">
                         <h3>Company</h3>
                         <ul>
-                            <li><a href="#!">About</a></li>
+                            <li><a href="/about">About</a></li>
                             <li><a href="#!">Environmental Initiatives</a></li>
                             <li><a href="#!">Factories</a></li>
                             <li><a href="#!">DEI</a></li>

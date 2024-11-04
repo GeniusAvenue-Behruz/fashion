@@ -6,6 +6,7 @@ const NavBar = () => {
 
     const handleClick = (item) => {
         document.body.style.overflow = 'auto';
+        setSearchVisible(false)
         navigate(`/listing`, { state: { name: item.name, picture: item.img, id: item.id } });
     };
 
@@ -31,19 +32,28 @@ const NavBar = () => {
         } else {
             document.body.style.overflow = 'auto';
             setSearchInput('');
-            setFilteredItems([]);
+            setFilteredItems(['women']);
         }
     };
 
     const handleSearchChange = (e) => {
-        const query = e.target.value.toLowerCase();
-        setSearchInput(query);
+        const input = e.target.value;
+        setSearchInput(input);
+
+        const query = input.toLowerCase();
 
         if (query.length > 0) {
-            const queryParts = query.split(' ');
-            const filtered = items.filter(item =>
-                queryParts.some(part => item.name.toLowerCase().includes(part))
-            );
+            const queryParts = query.split(' ').filter(part => part);
+
+            const filtered = items.filter(item => {
+
+                const itemWords = item.name.toLowerCase().replace(/['’]/g, '').split(/[^a-zA-Z]+/);
+
+                return queryParts.every(part =>
+                    itemWords.some(word => word.startsWith(part))
+                );
+            });
+
             setFilteredItems(filtered);
         } else {
             setFilteredItems([]);
@@ -80,8 +90,8 @@ const NavBar = () => {
             <div className='nav-wrapper'>
                 <nav className='nav container'>
                     <ul className='nav__categories'>
-                        <li><a href='#!'>Women</a></li>
-                        <li><a href='#!'>Men</a></li>
+                        <li><a href='/women'>Women</a></li>
+                        <li><a href='/men'>Men</a></li>
                         <li><a href='/about'>About</a></li>
                         <li><a href='/stories'>Everworld Stories</a></li>
                     </ul>
@@ -94,15 +104,15 @@ const NavBar = () => {
                 </nav>
             </div>
             <ul className='nav__options-menu'>
-                <li><a href='#!'>Holiday Gifting</a></li>
-                <li><a href='#!'>New Arrivals</a></li>
-                <li><a href='#!'>Best-seller</a></li>
-                <li><a href='#!'>Clothing</a></li>
-                <li><a href='#!'>Tops & Sweater</a></li>
-                <li><a href='#!'>Pants & Jeans</a></li>
-                <li><a href='#!'>Outerwear</a></li>
-                <li><a href='#!'>Shoes & Bags</a></li>
-                <li><a href='#!'>Sales</a></li>
+                <li><a href='/products'>Holiday Gifting</a></li>
+                <li><a href='/products'>New Arrivals</a></li>
+                <li><a href='/products'>Best-seller</a></li>
+                <li><a href='/products'>Clothing</a></li>
+                <li><a href='/products'>Tops & Sweater</a></li>
+                <li><a href='/products'>Pants & Jeans</a></li>
+                <li><a href='/products'>Outerwear</a></li>
+                <li><a href='/products'>Shoes & Bags</a></li>
+                <li><a href='/products'>Sales</a></li>
             </ul>
 
             {searchVisible && <div className='overlay' onClick={handleCancel}></div>}
