@@ -130,13 +130,21 @@
     }
 
     .container {
-        max-width: calc(100% - 20px);
+        max-width: calc(100% - 20px) !important;
     }
 
     .hero-content {
         top: 40%;
-        left: 50%;
+        left: 50% !important;
         transform: translate(-50%, -40%);
+
+        h1 {
+            font-size: 35px !important;
+        }
+
+        span {
+            font-size: 20px !important;
+        }
     }
 
     .nav__categories {
@@ -179,6 +187,7 @@
         height: 50vh !important;
         grid-template-columns: 1fr !important;
         overflow-y: scroll !important;
+
         div {
             margin: 0 auto;
         }
@@ -206,4 +215,81 @@
         max-width: 300px;
         margin: 0 auto;
     }
+
+    .nopage {
+        padding: 10px 0;
+
+        img {
+            max-width: 200px !important;
+        }
+    }
+
+    .blog__progress {
+        flex-direction: column;
+        gap: 20px;
+
+        &>div {
+            margin: 0 auto;
+        }
+    }
+
+    .blog__social {
+        h1 {
+            font-size: 40px !important;
+            line-height: 40px !important;
+        }
+
+        button {
+            width: 150px !important;
+            padding: 10px !important;
+            font-size: 10px !important;
+        }
+    }
+    .listing__grid{
+        grid-template-columns: 1fr !important;
+        gap: 0;
+        .listing__gallery{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            img{
+                max-width: 140px;
+                max-height: 140px;
+                margin: 0 !important;
+            }
+        }
+    }
+        .listing__grid-data {
+            padding: 0 !important;
+            .data__header{
+                justify-content: start;
+                flex-direction: column;
+                h1{
+                    font-size: 20px;
+                    line-height: 25px;
+                }
+                .price{
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+            }
+            .rating__star{
+                width: 10px;
+                height: 10px;
+            }
+            .listing__rating{
+                /* width: 300px !important; */
+            }
+            .listing__size-header{
+                /*  */
+            }
+  .listing__size-flex {
+    flex-wrap: wrap;
+  }
+            .listing__button{
+                button{
+                    width: 60% !important;
+                }
+            }
+        }
 }

@@ -582,16 +582,13 @@ body {
 .listing__grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
 }
 
 .listing__gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
   gap: 10px;
 }
 
@@ -709,54 +706,42 @@ body {
 
     .cream {
       background-color: #f5f5dc;
-
     }
 
     .pink {
       background-color: #ffc0cb;
-
     }
 
     .navy {
       background-color: #000080;
-
     }
 
     .olive {
       background-color: #808000;
-
     }
 
     .black {
       background-color: #000000;
-
     }
 
     .grey {
       background-color: #808080;
-
     }
 
     .beige {
       background-color: #f5f5dc;
-
     }
 
     .brown {
       background-color: #a52a2a;
-
     }
-
 
     button.selected {
       border-color: #000;
-
     }
-
 
     button:hover {
       opacity: 0.8;
-
     }
   }
 }
@@ -1217,7 +1202,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  /* height: 60vh; */
+  padding: 50px 0;
   img{
     max-width: 500px;
   }
