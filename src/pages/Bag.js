@@ -72,7 +72,6 @@ const Bag = () => {
                         </button>
                     </div>
                 )}
-                
             </div>
         </div>
     );
