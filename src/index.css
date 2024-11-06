@@ -94,7 +94,7 @@ li {
   height: 56px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center !important;
 
   ul {
     display: flex;
@@ -1222,7 +1222,7 @@ body {
   }
 }
 .blog-context {
-  margin: 100px auto;
+  /* margin: 100px auto; */
   text-align: center;
   padding: 20px;
 }
@@ -1235,23 +1235,9 @@ body {
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 items per row */
-  gap: 60px 20px;
+  gap: 60px 0px;
 }
 
-@media (max-width: 900px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 items per row on medium screens */
-  }
-}
-
-@media (max-width: 600px) {
-  .cards-container {
-    grid-template-columns: 1fr;
-    /* 1 item per row on small screens */
-  }
-}
 .card {
   width: 300px;
   border: none;
@@ -1370,14 +1356,16 @@ body {
   ul{
     list-style: none;
   }
+  
 }
-
-.about-section,
-.values-section,
-.team-section,
-.contact-section {
+.team-section{
+  h2 {
+      margin-bottom: 20px;
+    }
+}
+h1, h2 {
   margin-top: 50px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .team-members {

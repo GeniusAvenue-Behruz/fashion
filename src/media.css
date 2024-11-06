@@ -22,7 +22,7 @@
 }
 
 /* Tablets - Between 768px and 992px */
-@media (max-width: 992px) and (min-width: 768px) {
+@media (max-width: 1100px) and (min-width: 768px) {
     .nav__options-menu {
         gap: 15px;
     }
@@ -46,6 +46,12 @@
     .favorites__slider .favorites__grid-item img {
         min-height: 300px;
     }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        width: 100%;
+    }
+    
 }
 
 /* Small tablets and large smartphones - Between 576px and 768px */
@@ -109,6 +115,10 @@
             }
         }
     }
+        .cards-container {
+            grid-template-columns: 2fr !important;
+            /* 1 item per row on small screens */
+        }
 }
 
 /* Smartphones - Max width 576px */
@@ -245,51 +255,80 @@
             font-size: 10px !important;
         }
     }
-    .listing__grid{
+
+    .listing__grid {
         grid-template-columns: 1fr !important;
         gap: 0;
-        .listing__gallery{
+
+        .listing__gallery {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            img{
+
+            img {
                 max-width: 140px;
                 max-height: 140px;
                 margin: 0 !important;
             }
         }
     }
-        .listing__grid-data {
-            padding: 0 !important;
-            .data__header{
-                justify-content: start;
-                flex-direction: column;
-                h1{
-                    font-size: 20px;
-                    line-height: 25px;
-                }
-                .price{
-                    font-size: 16px;
-                    line-height: 25px;
-                }
+
+    .listing__grid-data {
+        padding: 0 !important;
+
+        .data__header {
+            justify-content: start;
+            flex-direction: column;
+
+            h1 {
+                font-size: 20px;
+                line-height: 25px;
             }
-            .rating__star{
-                width: 10px;
-                height: 10px;
-            }
-            .listing__rating{
-                /* width: 300px !important; */
-            }
-            .listing__size-header{
-                /*  */
-            }
-  .listing__size-flex {
-    flex-wrap: wrap;
-  }
-            .listing__button{
-                button{
-                    width: 60% !important;
-                }
+
+            .price {
+                font-size: 16px;
+                line-height: 25px;
             }
         }
+
+        .rating__star {
+            width: 10px;
+            height: 10px;
+        }
+
+        .listing__rating {
+            /* width: 300px !important; */
+        }
+
+        .listing__size-header {
+            /*  */
+        }
+
+        .listing__size-flex {
+            flex-wrap: wrap;
+        }
+
+        .listing__button {
+            button {
+                width: 60% !important;
+            }
+        }
+    }
+
+    .about-page {
+        .team-section {
+            h2 {
+                margin-bottom: 20px;
+            }
+
+            .team-members {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr !important;
+    }
 }
