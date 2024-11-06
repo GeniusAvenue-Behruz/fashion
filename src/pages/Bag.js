@@ -64,8 +64,7 @@ const Bag = () => {
                 ) : (
                     <p>Your bag is empty.</p>
                 )}
-
-                {/* Clear bag button */}
+                
                 {bagItems.length > 0 && (
                     <div className="clear-bag-button-container">
                         <button onClick={handleClearBag} className="clear-bag-button">
@@ -73,6 +72,7 @@ const Bag = () => {
                         </button>
                     </div>
                 )}
+                
             </div>
         </div>
     );
