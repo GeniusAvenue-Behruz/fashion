@@ -65,7 +65,7 @@ const Listing = () => {
     }, [id, picture]);
 
     if (!productData) {
-        return <div>{error || 'Loading...'}</div>;
+        return <div>{error || <div class="loader"></div>}</div>;
     }
 
     const { price, rating, reviews, colors = [], description } = productData;
