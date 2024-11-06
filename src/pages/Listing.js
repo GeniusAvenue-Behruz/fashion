@@ -11,8 +11,7 @@ const Listing = () => {
     const [images, setImages] = useState([]);
     const [productData, setProductData] = useState(null);
     const [error, setError] = useState('');
-
-    // State for selected color and size
+    const [notification, setNotification] = useState('');
     const [selectedColor, setSelectedColor] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
 
@@ -72,12 +71,31 @@ const Listing = () => {
     const { price, rating, reviews, colors = [], description } = productData;
 
     const handleAddToBag = () => {
-        console.log({
+        // Check if both color and size are selected
+        if (!selectedColor || !selectedSize) {
+            setNotification('Please select both color and size before adding to the bag.');
+            setTimeout(() => setNotification(''), 3000); // Hide notification after 3 seconds
+            return;
+        }
+
+        const bagItem = {
             name: name,
             price: price,
             color: selectedColor,
             size: selectedSize,
-        });
+            image: images[0],
+        };
+
+        const existingBag = JSON.parse(localStorage.getItem('bagItems')) || [];
+
+        existingBag.push(bagItem);
+
+        localStorage.setItem('bagItems', JSON.stringify(existingBag));
+
+        setNotification('Item successfully added to bag!');
+        setTimeout(() => setNotification(''), 3000); // Hide notification after 3 seconds
+
+        console.log("Item added to bag:", bagItem);
     };
 
     return (
@@ -85,6 +103,14 @@ const Listing = () => {
             <NavBar />
             <div className='listing'>
                 {error && <div className='error-message'>{error}</div>}
+
+                {/* Notification */}
+                {notification && (
+                    <div className="notification success">
+                        {notification}
+                    </div>
+                )}
+
                 <div className='listing__grid container'>
                     <div className='listing__gallery'>
                         {images.map((imgSrc, index) => (
@@ -169,11 +195,11 @@ const Listing = () => {
                                     </div>
                                     <div className=''>
                                         <h3>Fit</h3>
-                                        <p>Questions about fit? <br /> Contact Us <br /> Size Guide</p>
+                                        <p>Regular fit</p>
                                     </div>
                                     <div className=''>
-                                        <h3>Sustainability</h3>
-                                        <p>Made from renewed materials and cleaner chemistry</p>
+                                        <h3>Materials</h3>
+                                        <p>100% Cotton</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,70 @@
+/* Add to your Bag.css */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.bag-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    position: relative;
+    transition: transform 0.3s ease-out;
+}
+
+.bag-item.deleted {
+    animation: fadeOut 0.5s forwards;
+}
+
+.bag-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.bag-item h2 {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.bag-item button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clear-bag-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.clear-bag-button {
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bag-item button:hover,
+.clear-bag-button:hover {
+    background-color: #d32f2f;
+}
+
+.clear-bag-button:hover {
+    background-color: #1976d2;
+}

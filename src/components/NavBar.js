@@ -6,8 +6,20 @@ const NavBar = () => {
 
     const handleClick = (item) => {
         document.body.style.overflow = 'auto';
-        setSearchVisible(false)
+        setSearchVisible(false);
         navigate(`/listing`, { state: { name: item.name, picture: item.img, id: item.id } });
+    };
+
+    const handleProfileClick = () => {
+        setSearchVisible(false);
+        document.body.style.overflow = 'auto';
+        navigate('/profile'); // Update to the profile route
+    };
+
+    const handleBagClick = () => {
+        setSearchVisible(false);
+        document.body.style.overflow = 'auto';
+        navigate('/bag'); // Update to the bag route
     };
 
     const [searchVisible, setSearchVisible] = useState(false);
@@ -32,7 +44,7 @@ const NavBar = () => {
         } else {
             document.body.style.overflow = 'auto';
             setSearchInput('');
-            setFilteredItems(['women']);
+            setFilteredItems([]);
         }
     };
 
@@ -46,9 +58,7 @@ const NavBar = () => {
             const queryParts = query.split(' ').filter(part => part);
 
             const filtered = items.filter(item => {
-
                 const itemWords = item.name.toLowerCase().replace(/['’]/g, '').split(/[^a-zA-Z]+/);
-
                 return queryParts.every(part =>
                     itemWords.some(word => word.startsWith(part))
                 );
@@ -98,8 +108,8 @@ const NavBar = () => {
                     <a href='home' className='logo'><img src='logo.svg' alt="Logo" /></a>
                     <ul className='nav__buttons'>
                         <li><button onClick={toggleSearch}><i className="fa fa-search" aria-hidden="true"></i></button></li>
-                        <li><button><i className="fa-solid fa-user"></i></button></li>
-                        <li><button><i className="fa-solid fa-cart-shopping"></i></button></li>
+                        <li><button onClick={handleProfileClick}><i className="fa-solid fa-user"></i></button></li>
+                        <li><button onClick={handleBagClick}><i className="fa-solid fa-cart-shopping"></i></button></li>
                     </ul>
                 </nav>
             </div>
