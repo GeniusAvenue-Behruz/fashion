@@ -71,10 +71,9 @@ const Listing = () => {
     const { price, rating, reviews, colors = [], description } = productData;
 
     const handleAddToBag = () => {
-        // Check if both color and size are selected
         if (!selectedColor || !selectedSize) {
             setNotification('Please select both color and size before adding to the bag.');
-            setTimeout(() => setNotification(''), 3000); // Hide notification after 3 seconds
+            setTimeout(() => setNotification(''), 3000);
             return;
         }
 
