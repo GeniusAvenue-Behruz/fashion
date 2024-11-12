@@ -72,7 +72,7 @@ const Listing = () => {
 
     const handleAddToBag = () => {
         if (!selectedColor || !selectedSize) {
-            setNotification('Please select both color and size before adding to the bag.');
+            setError('Please select both color and size before adding to the bag.');
             setTimeout(() => setNotification(''), 3000);
             return;
         }
@@ -90,7 +90,7 @@ const Listing = () => {
         existingBag.push(bagItem);
 
         localStorage.setItem('bagItems', JSON.stringify(existingBag));
-
+        setError('')
         setNotification('Item successfully added to bag!');
         setTimeout(() => setNotification(''), 3000); // Hide notification after 3 seconds
 
@@ -142,7 +142,7 @@ const Listing = () => {
                         <div className='listing__size'>
                             <div className='listing__size-header'>
                                 <span>Size</span>
-                                <a href='/lhelp'>Size Guide</a>
+                                <a href='/help'>Size Guide</a>
                             </div>
                             <div className='listing__size-flex'>
                                 {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size, index) => (

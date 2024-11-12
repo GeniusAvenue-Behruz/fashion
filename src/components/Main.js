@@ -142,13 +142,13 @@ const Main = () => {
                             <h3>Our Holiday Gift Picks</h3>
                         <img src="imgs/holidayPick.png" alt="Stack of folded clothes"/>
                             <p>The best presents for everyone on your list.</p>
-                            <a href="#!">Read More</a>
+                            <a href="/about">Read More</a>
                     </div>
                     <div className="card">
                             <h3>Cleaner Fashion</h3>
                         <img src="imgs/cleanerPick.png" alt="Cotton field"/>
                             <p>See the sustainability efforts behind each of our products.</p>
-                            <a href="#!">Learn More</a>
+                            <a href="/about">Learn More</a>
                     </div>
                 </div>
             </div>
