@@ -6,7 +6,8 @@ import NoPage from './pages/NoPage.js'
 import Blog from './pages/Blog.js'
 import About from './pages/About.js'
 import Bag from './pages/Bag.js'
-
+import Profile from './pages/Profile.js'
+import SignUp from './pages/SignUp.js'
 const App = () => {
   return (
     <div>
@@ -18,6 +19,8 @@ const App = () => {
           <Route path='/stories' element={<Blog />} />
           <Route path='/about' element={<About />} />
           <Route path='/bag' element={<Bag />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='*' element={<NoPage />} />
         </Routes>
       </BrowserRouter>

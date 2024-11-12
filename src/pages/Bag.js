@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar.js';
-import "../Bag.css"
+import "../Bag.css";
 
 const Bag = () => {
     const [bagItems, setBagItems] = useState([]);
+    const [userName, setUserName] = useState('');
 
-    // Load the bag items from localStorage when the component mounts
+    // Load the bag items and user name from localStorage when the component mounts
     useEffect(() => {
         const storedBagItems = JSON.parse(localStorage.getItem('bagItems')) || [];
         setBagItems(storedBagItems);
+
+        // Get the user's name from localStorage if it exists
+        const storedUserName = localStorage.getItem('name');
+        if (storedUserName) {
+            setUserName(storedUserName);
+        }
     }, []);
 
     // Function to delete an item from the bag
@@ -35,6 +42,8 @@ const Bag = () => {
         <div className="bag-page">
             <NavBar />
             <div className="bag-component container">
+                {/* Greet the user by their name if it exists */}
+                {userName && <h2>Welcome back, {userName}!</h2>}
                 <h1>Your Bag</h1>
 
                 {/* Check if there are items in the bag */}
@@ -64,7 +73,7 @@ const Bag = () => {
                 ) : (
                     <p>Your bag is empty.</p>
                 )}
-                
+
                 {bagItems.length > 0 && (
                     <div className="clear-bag-button-container">
                         <button onClick={handleClearBag} className="clear-bag-button">

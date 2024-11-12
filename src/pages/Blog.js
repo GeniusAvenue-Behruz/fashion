@@ -79,7 +79,7 @@ const Blog = () => {
             <div className='blog__social'>
                 <div className='blog__social-context container'>
                     <h1>Follow us on social for more</h1>
-                    <button>@UpCoder Instagram</button>
+                    <a href="https://instagram.com/behruzrajabov1610"><button>@UpCoder Instagram</button></a>
                 </div>
             </div>
             <Footer/>
