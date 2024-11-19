@@ -4,7 +4,7 @@
     "price": "$49.99",
     "rating": 4.5,
     "reviews": 120,
-    "colors": ["Cream", "Pink", "Navy"],
+    "colors": ["Grey", "Black", "White", "Navy", "Pink"],
     "description": "Stay cozy and stylish this season with our Women's Sweaters. Designed for comfort and warmth, these sweaters feature a soft knit fabric that feels great against the skin. Perfect for layering or wearing on their own, they come in a variety of colors to match any outfit. Whether you're heading out for a casual day or relaxing at home, these sweaters are a must-have for your wardrobe."
   },
   "011": {
@@ -36,7 +36,7 @@
     "price": "$59.99",
     "rating": 4.6,
     "reviews": 85,
-    "colors": ["White", "Charcoal"],
+    "colors": ["Black", "Grey", "White"],
     "description": "The Waffle Long-Sleeve Crew is your go-to top for versatility and comfort. Made from a breathable waffle-knit fabric, this crew neck is perfect for layering or wearing alone. Its relaxed fit provides ease of movement while maintaining a stylish appearance. Whether you're lounging at home or heading out with friends, this top is an essential addition to your wardrobe."
   },
   "015": {
@@ -56,11 +56,11 @@
     "description": "The Essential Original Crew is designed for everyday comfort. Made from soft, durable materials, this crew neck sweatshirt is perfect for casual wear or as a layering piece. Its classic design makes it suitable for any occasion, whether you're running errands or enjoying a relaxing day at home. Available in multiple colors, it's easy to find the perfect match for your style."
   },
   "017": {
-    "name": "The Heavy Weight | Men's Bottoms",
-    "price": "$69.99",
+    "name": "Chino Slim Fit Pant Mens 32 x 28 Uniform Chocolate Brown",
+    "price": "$30.99",
     "rating": 4.5,
     "reviews": 78,
     "colors": ["Dark Grey", "Black"],
-    "description": "The Heavy Weight Men's Bottoms are crafted for ultimate comfort and durability. Ideal for colder days, these bottoms feature a thick fabric that keeps you warm while providing a perfect fit. Designed for versatility, they can be worn for both lounging at home or out on the town. Pair them with your favorite top for a complete look."
+    "description": "Chino Slim Fit Pant Mens 32 x 28 Uniform Chocolate Brown: The Heavy Weight Men's Bottoms are crafted for ultimate comfort and durability. Ideal for colder days, these bottoms feature a thick fabric that keeps you warm while providing a perfect fit. Designed for versatility, they can be worn for both lounging at home or out on the town. Pair them with your favorite top for a complete look."
   }
 }

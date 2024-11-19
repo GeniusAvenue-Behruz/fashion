@@ -614,9 +614,9 @@ body {
 .listing__gallery img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-
-  border-radius: 0;
+  object-fit: cover !important;
+  background-color: #f0f0f0;
+  border-radius: 6px;
 }
 
 .listing__grid-data {
@@ -754,6 +754,12 @@ body {
 
     .brown {
       background-color: #a52a2a;
+    }
+    .white{
+      background-color: white;
+      box-shadow:
+          inset 0 0 0 1px white,
+          0 0 0 1px rgba(0, 0, 0, 0.479);
     }
 
     button.selected {

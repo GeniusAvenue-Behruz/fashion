@@ -24,7 +24,7 @@ const NavBar = () => {
 
     const [searchVisible, setSearchVisible] = useState(false);
     const [searchInput, setSearchInput] = useState('');
-    const [filteredItems, setFilteredItems] = useState([]);
+    const [filteredItems, setFilteredItems] = useState(['Women']);
 
     const items = [
         { id: "010", name: "Women's Sweaters", img: '../imgs/womenSweater.svg' },
@@ -34,7 +34,11 @@ const NavBar = () => {
         { id: "014", name: "The Waffle Long-Sleeve Crew", img: '../imgs/waffle.svg' },
         { id: "015", name: "The Bomber jacket | Uniform | Men's", img: '../imgs/jacket.svg' },
         { id: "016", name: "The Essential Original Crew", img: '../imgs/essential.svg' },
-        { id: "017", name: "The Heavy Weight | Men's Bottoms", img: '../imgs/menBestSeller.svg' },
+        { id: "017", name: "Chino Slim Fit Pant Mens 32 x 28 Uniform Chocolate Brown", img: '../imgs/menBestSeller.svg' },
+    ];
+    const defaultItem = [
+        { id: "012", name: "Women's Bottoms", img: '../imgs/womenBottom.svg' },
+        { id: "010", name: "Women's Sweaters", img: '../imgs/womenSweater.svg' },
     ];
 
     const toggleSearch = () => {
@@ -140,19 +144,17 @@ const NavBar = () => {
                         />
                         <button type='button' onClick={handleCancel}>Cancel</button>
                     </form>
-                    {searchInput && filteredItems.length > 0 && (
-                        <div className='searchResults container'>
-                            <h3>Search Results</h3>
-                            <div className='searchResults__grid'>
-                                {filteredItems.slice(0, 4).map((item, index) => (
-                                    <div key={index} className='searchResults__grid-item' onClick={() => handleClick(item)}>
-                                        <img src={item.img} alt={item.name} />
-                                        <span className='imgCaption'>{item.name}</span>
-                                    </div>
-                                ))}
-                            </div>
+                    <div className='searchResults container'>
+                        <h3>{searchInput ? 'Search Results' : 'Suggestions'}</h3>
+                        <div className='searchResults__grid'>
+                            {(searchInput ? filteredItems : defaultItem).slice(0, 4).map((item, index) => (
+                                <div key={index} className='searchResults__grid-item' onClick={() => handleClick(item)}>
+                                    <img src={item.img} alt={item.name} />
+                                    <span className='imgCaption'>{item.name}</span>
+                                </div>
+                            ))}
                         </div>
-                    )}
+                    </div>
                 </div>
             )}
         </div>
